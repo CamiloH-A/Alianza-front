@@ -1,0 +1,46 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Editar cliente</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Shared Key</label>
+            <input type="text" class="form-control" 
+            id = "sharedKey" [(ngModel)] = "cliente.sharedKey" 
+            name = "sharedKey" required>            
+        </div>
+        <div class="form-group">
+            <label>Bussines ID</label>
+            <input type="text" class="form-control" 
+            id = "bussinesId" [(ngModel)] = "cliente.bussinesId" 
+            name = "bussinesId" required>            
+        </div>
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" class="form-control" 
+            id = "email" [(ngModel)] = "cliente.email" 
+            name = "email" required>            
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" 
+            id = "phone" [(ngModel)] = "cliente.phone" 
+            name = "phone" required>            
+        </div>
+        <div class="form-group">
+            <label>Date Added</label>
+            <input type="date" class="form-control"
+            id = "date" [(ngModel)] = "cliente.dateAdded" 
+            name = "date" required>            
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary mr-4">
+                <i class="fa-solid fa-floppy-disk" style="color: #ffffff;"></i> Save
+            </button>
+    
+            <button type="button" class="btn btn-danger" (click)="goToClientSummary()">
+                <i class="fa-solid fa-circle-xmark" style="color: #ffffff;"></i> Exit
+            </button>
+        </div>        
+        
+    </form>
+</div>

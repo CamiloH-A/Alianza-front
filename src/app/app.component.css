@@ -1,0 +1,14 @@
+.sidebar {
+    background-color: #f0f0f0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+  }
+  
+  .main-content {
+    padding: 20px;
+    margin-left: 25%; /* Toma en cuenta el ancho del sidebar */
+  }
+  

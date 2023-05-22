@@ -1,0 +1,53 @@
+<h2>Clients</h2>
+
+<div class="row mb-3 flex-column justify-content-end">
+    <div class="col-6">
+        <button class="btn btn-primary btn-margin" [routerLink]="'/registrar-cliente'">
+            <i class="fa-solid fa-plus" style="color: #ffffff;"></i> New
+        </button>
+        <button class="btn btn-primary btn-margin" type="button" (click)="exportToCsv()">
+            <i class="fa-solid fa-file-export" style="color: #ffffff;"></i> Export
+        </button>
+    </div>
+    <div class="col-6">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchValue">
+      <button class="btn btn-primary" type="button" (click)="getClientsBySharedKey()">
+        <i class="fa-solid fa-search" style="color: #ffffff;"></i> Search
+      </button>
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Shared Key</th>
+        <th>Bussines ID</th>
+        <th>E-mail</th>
+        <th>Phone</th>
+        <th>Data Added</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{cliente.sharedKey}}</td>
+        <td>{{cliente.bussinesId}}</td>
+        <td>{{cliente.email}}</td>
+        <td>{{cliente.phone}}</td>
+        <td>{{dateFormater(cliente.dateAdded)}}</td>
+        <td>
+            <button class="btn btn-primary btn-sm" (click)="editClient(cliente.sharedKey)">
+                <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteClient(cliente.sharedKey)">
+                <i class="fa-sharp fa-solid fa-trash" style="color: #ffffff;"></i>
+            </button>
+          </td>
+      </tr>
+      <tr *ngIf="errorMessage">
+        <td colspan="6" class="text-center font-weight-bold text-danger">{{ errorMessage }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
